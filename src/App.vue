@@ -22,10 +22,6 @@
 
     <button v-on:click="test">Allertbotton</button>
 
-
-
-
-
   </div>
 </template>
 
@@ -65,7 +61,6 @@ export default {
 }
 .greenBox {
   border: 10px solid burlywood;
-  webkit-border-radius: 14px 14px 14px 14px;
   border-radius: 14px 14px 14px 14px;
   background-color: antiquewhite;
   margin: 5px;
