@@ -9,18 +9,14 @@
     </div>
     <hr>
 
-    <ul>
-      <li v-for="dope in dopes" v-bind:key="dope.id">
-        {{dope.name}}
-      </li>
-    </ul>
+    <main_products class="mainProducts"/>
 
     <ul>
       <li v-for="(todo, index) in todos" v-bind:key="todo.id"
           :class="{'isFinished':todo.finished}">
         <input type="checkbox" :checked="todos.finished" />
-        {{++index}}, {{todo.name}}
-        <a v-bind:href="'?id=4'+todo.id" >zeigen</a>
+        {{++index}}.  {{todo.name}}
+        <a v-bind:href="'?id='+todo.id" >zeigen</a>
       </li>
     </ul>
 
@@ -30,23 +26,18 @@
 </template>
 
 <script>
-
+import main_products from "@/components/MainProductList";
 
 export default {
   name: 'App',
   data: () => ({
     welcome: 'welcome @ your easy dealer',
     name: 'Ganja Shop 4 chillibilly',
-    dopes: [
-      {id: 1, name: "White Widow"},
-      {id: 2, name: "Purple Hase"},
-      {id: 3, name: "orange Butt"},
-      {id: 4, name: "...skunk..."},
-    ],
+
     todos: [
-      {id: 1, finished: false, name: "authentifizieren"},
+      {id: 1, finished: true, name: "authentifizieren"},
       {id: 2, finished: false, name: "ganja Wählen"},
-      {id: 3, finished: false, name: "mehr ganja Wählen"},
+      {id: 3, finished: true, name: "mehr ganja Wählen"},
       {id: 4, finished: false, name: "bestellung bestätigen"},
     ]
   }),
@@ -54,6 +45,9 @@ export default {
     test() {
       alert("Hellau");
     }
+  },
+  components:{
+    main_products,
   }
 }
 </script>
@@ -62,7 +56,9 @@ export default {
 .isFinished {
   text-decoration: line-through;
 }
-
+.mainProducts{
+  flex-direction: row;
+}
 .greenBox {
   border: 10px solid burlywood;
   webkit-border-radius: 14px 14px 14px 14px;
@@ -81,7 +77,7 @@ export default {
   justify-content: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: auto;
   font-size: 100%;
   text-align: center;
   color: #2c3e50;
